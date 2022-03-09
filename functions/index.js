@@ -1,6 +1,5 @@
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
-const firebase = require('firebase');
 
 admin.initializeApp();
 const app = require('express')();
@@ -14,7 +13,6 @@ const firebaseConfig = {
     appId: "1:295815274601:web:0a2e829b3d4fa4e94d82f8",
     measurementId: "G-54DJT2WTHJ"
 };
-
 
 // Retrieves posts
 app.get('/posts', (req, res) => {
@@ -62,11 +60,14 @@ app.post('/register', (req, res) => {
         handle: req.body.handle
     };
     //TODO: validate data
-    firebase.auth()
-        .createUserWithEmailAndPassword(newUser.email, newUser.password)
+    admin.auth()
+        .createUser({
+            email: newUser.email,
+            password: newUser.password
+        })
         .then(data => {
             return res.status(201)
-                .json({message: `user ${data.user.uid} registered successfully`})
+                .json({message: `user ${data.uid} registered successfully`})
         })
         .catch(err => {
             console.error(err);
