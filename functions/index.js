@@ -1,22 +1,14 @@
 const functions = require("firebase-functions");
-const admin = require("firebase-admin");
-
-admin.initializeApp();
 const app = require('express')();
+const admin = require("firebase-admin");
+admin.initializeApp();
 
-const firebaseConfig = {
-    apiKey: "AIzaSyDQK_HCnOAHoQ7YA_rJOyesA--e3lvrrTA",
-    authDomain: "zensocial-501c5.firebaseapp.com",
-    projectId: "zensocial-501c5",
-    storageBucket: "zensocial-501c5.appspot.com",
-    messagingSenderId: "295815274601",
-    appId: "1:295815274601:web:0a2e829b3d4fa4e94d82f8",
-    measurementId: "G-54DJT2WTHJ"
-};
+
+const db = admin.firestore();
 
 // Retrieves posts
 app.get('/posts', (req, res) => {
-    admin.firestore().collection('posts')
+    db.collection('posts')
         .orderBy('createdAt', 'desc')
         .get()
         .then(data => {
@@ -40,7 +32,7 @@ app.post('/post', (req, res) => {
         createdAt: new Date().toISOString()
     };
 
-    admin.firestore().collection('posts')
+    db.collection('posts')
         .add(newPost)
         .then(doc => {
             res.json({message: `post ${doc.id} created successfully`});
@@ -60,19 +52,40 @@ app.post('/register', (req, res) => {
         handle: req.body.handle
     };
     //TODO: validate data
-    admin.auth()
-        .createUser({
-            email: newUser.email,
-            password: newUser.password
-        })
-        .then(data => {
-            return res.status(201)
-                .json({message: `user ${data.uid} registered successfully`})
-        })
-        .catch(err => {
-            console.error(err);
-            return res.status(500)
-                .json({error: err.code});
+    db.doc(`/users/${newUser.handle}`)
+        .get()
+        .then(doc => {
+            if (doc.exists) {
+                return res.status(400).json({handle: 'username already taken'})
+            } else {
+                admin.auth()
+                    .createUser({
+                        email: newUser.email,
+                        password: newUser.password
+                    })
+                    .then(data => {
+                        const userData = {
+                            handle: newUser.handle,
+                            email: newUser.email,
+                            createdAt: new Date().toISOString(),
+                            userId: data.uid
+                        };
+                        return db.doc(`/users/${newUser.handle}`).set(userData)
+                    })
+                    .then(() => {
+                        res.status(201).json({message: `user '${newUser.handle}' created successfully`});
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        if (err.code === 'auth/email-already-in-use') {
+                            res.status(400).json({email: 'email is already in use'});
+                        } else {
+                            res.status(500).json({error: err.code})
+                        }
+                    })
+
+            }
+
         });
 });
 

@@ -14,11 +14,11 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.17.3",
-    "firebase": "^9.6.8",
     "firebase-admin": "^10.0.2",
     "firebase-functions": "^3.18.0"
   },
   "devDependencies": {
+    "firebase": "^9.6.8",
     "firebase-functions-test": "^0.2.0"
   },
   "private": true
