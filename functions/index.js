@@ -68,6 +68,11 @@ app.post('/register', (req, res) => {
             return res.status(201)
                 .json({message: `user ${data.user.uid} registered successfully`})
         })
-})
+        .catch(err => {
+            console.error(err);
+            return res.status(500)
+                .json({error: err.code});
+        });
+});
 
 exports.api = functions.https.onRequest(app);
