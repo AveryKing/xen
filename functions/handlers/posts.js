@@ -204,14 +204,17 @@ exports.deletePost = (req, res) => {
     const postDoc = db.doc(`/posts/${req.params.postId}`);
     postDoc.get()
         .then(doc => {
-            if (!doc.exists) {
-                return res.status(404).json({error: "Post doesn't exist"});
-            } else {
-                postDoc.delete()
-                    .then(() => {
-                        return res.json({message: "Post successfully deleted"});
-                    })
+                if (!doc.exists) {
+                    return res.status(404).json({error: "Post doesn't exist"});
+                }
+                if (doc.data().userHandle !== req.user.handle) {
+                    return res.status(403).json({error: "You cannot delete another user's post."});
+                }
+                return postDoc.delete()
             }
+        )
+        .then(() => {
+            return res.json({message: "Post successfully deleted"});
         })
         .catch(err => {
             console.error(err);
