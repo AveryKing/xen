@@ -1,6 +1,6 @@
 const firebase = require('firebase/app');
 
-const firebaseConfig = {
+const config = {
     apiKey: "AIzaSyDQK_HCnOAHoQ7YA_rJOyesA--e3lvrrTA",
     authDomain: "zensocial-501c5.firebaseapp.com",
     projectId: "zensocial-501c5",
@@ -10,8 +10,8 @@ const firebaseConfig = {
     measurementId: "G-54DJT2WTHJ"
 };
 
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(config);
 
 module.exports = {
-    firebase, firebaseConfig
+    firebase, config
 };
