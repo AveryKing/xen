@@ -106,6 +106,7 @@ exports.commentOnPost = (req, res) => {
         })
 }
 
+//TODO: condense like/unlike into one function
 // Like a post
 exports.likePost = (req, res) => {
     const likeDoc = db.collection('likes')
@@ -175,11 +176,11 @@ exports.unlikePost = (req, res) => {
         .then(data => {
             if (data.empty) {
                 // Not yet liked
-                return res.status(400).json({error: 'Post already liked'});
+                return res.status(400).json({error: 'Post not yet liked'});
 
 
             } else {
-                db.doc(`/likes/${data.docs[0].data().id}`).delete()
+                db.doc(`/likes/${data.docs[0].id}`).delete()
                     .then(() => {
                         postData.likeCount--;
                         return postDoc.update({likeCount: postData.likeCount});
