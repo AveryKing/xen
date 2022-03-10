@@ -58,6 +58,16 @@ exports.createNotificationOnLike = functions.firestore.document(`likes/{id}`)
             })
     });
 
+exports.deleteNotificationOnUnlike = functions.firestore.document('likes/{id}')
+    .onDelete((snapshot) => {
+        db.doc(`/notifications/${snapshot.id}`)
+            .delete()
+            .catch(err => {
+                console.error(err)
+            })
+    })
+
+
 exports.createNotificationOnComment = functions.firestore.document('comments/{id}')
     .onCreate((snapshot) => {
         db.doc(`/posts/${snapshot.data().postId}`).get()
