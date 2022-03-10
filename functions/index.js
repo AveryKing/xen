@@ -12,7 +12,14 @@ const {
 const {FBAuth} = require('./util/auth');
 // Post routes
 app.get('/posts', getAllPosts);
+app.get('/post/:postId', getPost);
 app.post('/post', FBAuth, createPost);
+//TODO: delete post
+//TODO: like post
+//TODO: unlike post
+//TODO: comment on post
+
+
 // User routes
 app.post('/register', registerUser);
 app.post('/login', loginUser);
