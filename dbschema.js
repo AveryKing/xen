@@ -20,6 +20,14 @@ let db = {
             likeCount: 11,
             commentCount: 6
         }
+    ],
+    comments: [
+        {
+            userHandle: 'king',
+            postId:'e384fr7h3e239if3u3hfi',
+            body: 'hello, world!',
+            createdAt: '2022-03-08T11:46:01.018Z'
+        }
     ]
 };
 
