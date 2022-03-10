@@ -47,7 +47,7 @@ exports.getPost = (req, res) => {
         .get()
         .then((doc) => {
             if (!doc.exists) {
-                return res.status(404).json({ error: 'Post not found' });
+                return res.status(404).json({error: 'Post not found'});
             }
             postData = doc.data();
             postData.postId = doc.id;
@@ -67,22 +67,37 @@ exports.getPost = (req, res) => {
         })
         .catch((err) => {
             console.error(err);
-            res.status(500).json({ error: err.code });
+            res.status(500).json({error: err.code});
         });
 };
 
 // Comment on post
 
-exports.commentOnPost = (req,res) => {
-    if(!req.body.body.trim().length) {
+exports.commentOnPost = (req, res) => {
+    if (!req.body.body.trim().length) {
         return res.status(400).json({error: 'Comment cannot be empty'});
-    } else {
-        const newComment = {
-            body: req.body.body,
-            userHandle: req.user.handle,
-            createdAt: new Date().toISOString(),
-            postId: req.params.postId,
-            userImage: req.user.imageUrl
-        }
     }
+
+    const newComment = {
+        body: req.body.body,
+        userHandle: req.user.handle,
+        createdAt: new Date().toISOString(),
+        postId: req.params.postId,
+        userImage: req.user.imageUrl
+    };
+
+    db.doc(`/posts/${req.params.postId}`).get()
+        .then(doc => {
+            if(!doc.exists) {
+                return res.status(404).json({error: 'Post does not exist'});
+            }
+            return db.collection('comments').add(newComment);
+        })
+        .then(() => {
+            res.status(201).json(newComment);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({error: err.code});
+        })
 }
