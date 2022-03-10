@@ -24,6 +24,9 @@ exports.getAllPosts = (req, res) => {
 exports.createPost = (req, res) => {
     const newPost = {
         userHandle: req.user.handle,
+        userImage: req.user.imageUrl,
+        likeCount: 0,
+        commentCount: 0,
         body: req.body.body,
         createdAt: new Date().toISOString()
     };
