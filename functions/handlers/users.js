@@ -84,7 +84,7 @@ exports.loginUser = (req, res) => {
 };
 
 // Adds user details
-exports.addUserDetails = (req,res) => {
+exports.addUserDetails = (req, res) => {
     const userDetails = reduceUserDetails(req.body);
     db.doc(`/users/${req.user.handle}`).update(userDetails)
         .then(() => {
@@ -96,6 +96,30 @@ exports.addUserDetails = (req,res) => {
         })
 };
 
+// Retrieve logged in user details
+exports.getAuthenticatedUser = (req, res) => {
+    const userData = {};
+    db.doc(`/users/${req.user.handle}`).get()
+        .then(doc => {
+            if (doc.exists) {
+                userData.credentials = doc.data();
+                return db.collection('likes')
+                    .where('userHandle', '==', req.user.handle).get()
+            }
+        })
+        .then(data => {
+            userData.likes = []
+            data.forEach(doc => {
+                userData.likes.push(doc.data());
+            });
+            return res.json(userData);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({error: err.code});
+        })
+};
+
 // Updates user profile image
 exports.uploadImage = (req, res) => {
     const BusBoy = require('busboy');
@@ -103,12 +127,12 @@ exports.uploadImage = (req, res) => {
     const os = require('os');
     const fs = require('fs');
 
-    const busboy =  BusBoy({headers: req.headers});
+    const busboy = BusBoy({headers: req.headers});
 
     let imageFileName, imageToUpload = {}
     busboy.on('file', (fieldname, file, filename, encoding, mimetype) => {
         //TODO: Fix to allow filetypes other than PNG
-        if(mimetype !== 'image/png') {
+        if (mimetype !== 'image/png') {
             return res.status(400).json({error: 'only png is allowed'});
         }
         //const imageExtension = filename.split('.')[filename.split('.').length - 1];
