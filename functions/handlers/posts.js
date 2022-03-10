@@ -105,3 +105,11 @@ exports.commentOnPost = (req, res) => {
             res.status(500).json({error: err.code});
         })
 }
+
+exports.likePost = (req,res) => {
+    res.json({});
+}
+
+exports.unlikePost = (req,res) => {
+    res.json({});
+}
