@@ -1,4 +1,4 @@
-const {admin} = require('./admin');
+const {admin, db} = require('./admin');
 
 const FBAuth = (req, res, next) => {
     let idToken;

@@ -5,7 +5,7 @@ const isEmail = (email) => {
     return email.match(regEx);
 };
 
-exports.vaidateRegistrationData = (data) => {
+exports.validateRegistrationData = (data) => {
     const errors = {};
     const userDataArray = Object.entries(data);
     userDataArray.forEach(kv => {
