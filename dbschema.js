@@ -28,6 +28,16 @@ let db = {
             body: 'hello, world!',
             createdAt: '2022-03-08T11:46:01.018Z'
         }
+    ],
+    notifications: [
+        {
+            recipient: 'king',
+            sender: 'avery',
+            read: 'true || false',
+            postId: 'e384fr7h3e239if3u3hfi',
+            type: 'like || comment',
+            createdAt: '2022-04-02T11:46:01.018Z'
+        }
     ]
 };
 
