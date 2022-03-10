@@ -91,10 +91,10 @@ exports.uploadImage = (req, res) => {
 
     let imageFileName, imageToUpload = {}
     busboy.on('file', (fieldname, file, filename, encoding, mimetype) => {
-        console.log(fieldname);
-        console.log(filename);
-        console.log(mimetype);
         //TODO: Fix to allow filetypes other than PNG
+        if(mimetype !== 'image/png') {
+            return res.status(400).json({error: 'only png is allowed'});
+        }
         //const imageExtension = filename.split('.')[filename.split('.').length - 1];
         const imageExtension = 'png';
         imageFileName = `${Math.round(Math.random() * 1337331)}.${imageExtension}`;
