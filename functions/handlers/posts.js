@@ -1,5 +1,7 @@
 const {db} = require('../util/admin');
 
+// Get all posts
+
 exports.getAllPosts = (req, res) => {
     db.collection('posts')
         .orderBy('createdAt', 'desc')
@@ -16,6 +18,8 @@ exports.getAllPosts = (req, res) => {
         })
         .catch(err => console.error);
 };
+
+// Create post
 
 exports.createPost = (req, res) => {
     const newPost = {
@@ -36,7 +40,7 @@ exports.createPost = (req, res) => {
         })
 };
 
-// Get one post
+// Retrieve one post
 exports.getPost = (req, res) => {
     let postData = {};
     db.doc(`/posts/${req.params.postId}`)
@@ -66,3 +70,19 @@ exports.getPost = (req, res) => {
             res.status(500).json({ error: err.code });
         });
 };
+
+// Comment on post
+
+exports.commentOnPost = (req,res) => {
+    if(!req.body.body.trim().length) {
+        return res.status(400).json({error: 'Comment cannot be empty'});
+    } else {
+        const newComment = {
+            body: req.body.body,
+            userHandle: req.user.handle,
+            createdAt: new Date().toISOString(),
+            postId: req.params.postId,
+            userImage: req.user.imageUrl
+        }
+    }
+}
