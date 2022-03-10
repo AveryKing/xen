@@ -198,3 +198,23 @@ exports.unlikePost = (req, res) => {
             res.status(500).json({error: err.code})
         })
 }
+
+// Delete a post
+exports.deletePost = (req, res) => {
+    const postDoc = db.doc(`/posts/${req.params.postId}`);
+    postDoc.get()
+        .then(doc => {
+            if (!doc.exists) {
+                return res.status(404).json({error: "Post doesn't exist"});
+            } else {
+                postDoc.delete()
+                    .then(() => {
+                        return res.json({message: "Post successfully deleted"});
+                    })
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            return res.status(500).json({error: "There was an error deleting the post"});
+        })
+}
