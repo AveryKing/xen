@@ -1,6 +1,6 @@
 const functions = require("firebase-functions");
 const app = require('express')();
-const {getAllPosts, createPost} = require('./handlers/posts');
+const {getAllPosts, getPost, createPost} = require('./handlers/posts');
 const {
     registerUser,
     loginUser,
