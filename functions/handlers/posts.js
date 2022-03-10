@@ -34,7 +34,8 @@ exports.createPost = (req, res) => {
     db.collection('posts')
         .add(newPost)
         .then(doc => {
-            return res.json({message: `post ${doc.id} created successfully`});
+            newPost.postId = doc.id;
+            return res.json(newPost);
         })
         .catch(err => {
             console.error(err);
