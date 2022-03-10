@@ -1,8 +1,9 @@
 const {db, admin} = require('../util/admin');
 const {config} = require('../util/config');
 const {signInWithEmailAndPassword, getAuth, getIdToken} = require("firebase/auth");
-const {validateRegistrationData, validateLoginData} = require('../util/validation');
+const {validateRegistrationData, validateLoginData, reduceUserDetails} = require('../util/validation');
 
+// Create new user account
 exports.registerUser = (req, res) => {
     const newUser = {
         email: req.body.email,
@@ -54,6 +55,7 @@ exports.registerUser = (req, res) => {
         });
 };
 
+// Login user
 exports.loginUser = (req, res) => {
     const user = {
         email: req.body.email,
@@ -81,6 +83,20 @@ exports.loginUser = (req, res) => {
         })
 };
 
+// Adds user details
+exports.addUserDetails = (req,res) => {
+    let userDetails = reduceUserDetails(req.body);
+    db.doc(`/users/${req.user.handle}`).update(userDetails)
+        .then(() => {
+            return res.json({message: 'Details updated successfully'});
+        })
+        .catch(err => {
+            console.error(err);
+            return res.status(500).json({error: err.code});
+        })
+};
+
+// Updates user profile image
 exports.uploadImage = (req, res) => {
     const BusBoy = require('busboy');
     const path = require('path');
@@ -124,4 +140,4 @@ exports.uploadImage = (req, res) => {
             })
     })
     busboy.end(req.rawBody);
-}
+};
