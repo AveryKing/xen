@@ -87,14 +87,16 @@ exports.uploadImage = (req, res) => {
     const os = require('os');
     const fs = require('fs');
 
-    const busboy = new BusBoy({headers: req.headers});
+    const busboy =  BusBoy({headers: req.headers});
 
     let imageFileName, imageToUpload = {}
     busboy.on('file', (fieldname, file, filename, encoding, mimetype) => {
         console.log(fieldname);
         console.log(filename);
         console.log(mimetype);
-        const imageExtension = filename.split('.')[filename.split('.').length - 1];
+        //TODO: Fix to allow filetypes other than PNG
+        //const imageExtension = filename.split('.')[filename.split('.').length - 1];
+        const imageExtension = 'png';
         imageFileName = `${Math.round(Math.random() * 1337331)}.${imageExtension}`;
         const filePath = path.join(os.tmpdir(), imageFileName);
         imageToUpload = {filePath, mimetype};
@@ -121,4 +123,5 @@ exports.uploadImage = (req, res) => {
                 return res.status(500).json({error: err.code});
             })
     })
+    busboy.end(req.rawBody);
 }
