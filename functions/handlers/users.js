@@ -1,6 +1,6 @@
 const {db, admin} = require('../util/admin');
 const {config} = require('../util/config');
-const {signInWithEmailAndPassword, getAuth, getIdToken} = require("firebase/auth");
+const {signInWithEmailAndPassword, getAuth, getIdToken} = require("@firebase/auth");
 const {validateRegistrationData, validateLoginData, reduceUserDetails} = require('../util/validation');
 
 // Create new user account
