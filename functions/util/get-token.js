@@ -3,7 +3,7 @@
 const axios = require('axios');
 const util = require('util');
 const baseUrl = 'http://localhost:5000/zensocial-501c5/us-central1'
-const email = 'avery2@fbi.gov';
+const email = 'avery@fbi.gov';
 const password = '123456';
 
 axios.post(`${baseUrl}/api/login`, {
