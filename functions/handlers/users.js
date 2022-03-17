@@ -106,6 +106,8 @@ exports.getUserDetails = (req, res) => {
                 return db.collection('posts')
                     .where('userHandle', '==', req.params.handle)
                     .orderBy('createdAt', 'desc').get()
+            } else {
+                return res.status(404).json({error: 'user does not exist'})
             }
         })
         .then(data => {
