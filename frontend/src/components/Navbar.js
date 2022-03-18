@@ -1,3 +1,4 @@
+import {GiYinYang} from 'react-icons/gi';
 import {
     Box,
     Flex,
@@ -53,14 +54,16 @@ export default function Navbar() {
                     />
                 </Flex>
                 <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-                    <Text
+                    <Icon
+                        as={GiYinYang}
                         textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
                         fontFamily={'heading'}
+                        fontSize={35}
                         color={useColorModeValue('gray.800', 'white')}>
-                        ZenSocial
-                    </Text>
 
-                    <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+                    </Icon>
+
+                    <Flex display={{ base: 'none', md: 'flex' }} ml={10} mt={1}>
                         <DesktopNav />
                     </Flex>
                 </Flex>
@@ -73,7 +76,7 @@ export default function Navbar() {
 
                     <Button
                         as={RouterLink}
-                        fontSize={'sm'}
+                        fontSize={18}
                         fontWeight={400}
                         variant={'link'}
                         to={'/login'}>
@@ -83,7 +86,7 @@ export default function Navbar() {
                         as={RouterLink}
                         to={'/register'}
                         display={{ base: 'none', md: 'inline-flex' }}
-                        fontSize={'sm'}
+                        fontSize={'lg'}
                         fontWeight={600}
                         color={'white'}
                         bg={'pink.400'}
@@ -91,7 +94,7 @@ export default function Navbar() {
                         _hover={{
                             bg: 'pink.300',
                         }}>
-                        Sign Up
+                        <Text mb={1}>Sign Up</Text>
                     </Button>
                     <ColorModeSwitcher/>
                 </Stack>
@@ -117,7 +120,7 @@ const DesktopNav = () => {
                         <PopoverTrigger>
                             <Link
                                 p={2}
-                                fontSize={'sm'}
+                                fontSize={18}
                                 fontWeight={500}
                                 color={linkColor}
                                 _hover={{
@@ -216,6 +219,7 @@ const MobileNavItem = ({ label, children, href }) => {
                     textDecoration: 'none',
                 }}>
                 <Text
+
                     fontWeight={600}
                     color={useColorModeValue('gray.600', 'gray.200')}>
                     {label}

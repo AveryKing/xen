@@ -18,7 +18,7 @@ function App({loggedIn = false}) {
                 <Navbar/>
                 <Container>
                 <Switch>
-                    <Route exact path='/' component={loggedIn ? Home : Flow}/>
+                    <Route exact path='/' component={loggedIn ? Flow : Home}/>
                     <Route exact path='/login' component={Login}/>
                     <Route exact path='/register' component={Register}/>
                 </Switch>

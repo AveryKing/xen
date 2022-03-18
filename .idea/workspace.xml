@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e17dd993-97d6-48cd-9e5f-a254c006c647" name="Changes" comment="``dbschema.js`` updated to include notification document structure">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Svg1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/assets/art1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/assets/svg1.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/art1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/svg1.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,13 +54,19 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="16.14.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.26" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/public" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Avery\Desktop\ZenSocial\frontend\public" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Avery\Desktop\ZenSocial\frontend\src\assets" />
+      <recent name="C:\Users\Avery\Desktop\ZenSocial\frontend\public" />
       <recent name="C:\Users\avery\Desktop\zen-functions" />
       <recent name="C:\Users\avery\Desktop\zen-functions\functions\util" />
     </key>
@@ -77,7 +89,7 @@
       <workItem from="1647490371502" duration="5888000" />
       <workItem from="1647558380264" duration="973000" />
       <workItem from="1647566720079" duration="6660000" />
-      <workItem from="1647579139034" duration="5314000" />
+      <workItem from="1647579139034" duration="8491000" />
     </task>
     <task id="LOCAL-00001" summary="``dbschema.js`` updated to include notification document structure">
       <created>1646955759894</created>
