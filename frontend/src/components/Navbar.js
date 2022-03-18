@@ -55,6 +55,7 @@ export default function Navbar() {
                 </Flex>
                 <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
                     <Icon
+                        sx={{color:'#ED64A6'}}
                         as={GiYinYang}
                         textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
                         fontFamily={'heading'}

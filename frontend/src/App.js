@@ -16,13 +16,13 @@ function App({loggedIn = false}) {
         <ChakraProvider theme={theme}>
             <Router>
                 <Navbar/>
-                <Container>
+
                 <Switch>
                     <Route exact path='/' component={loggedIn ? Flow : Home}/>
                     <Route exact path='/login' component={Login}/>
                     <Route exact path='/register' component={Register}/>
                 </Switch>
-                </Container>
+
             </Router>
         </ChakraProvider>
     );

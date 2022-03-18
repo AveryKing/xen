@@ -1,9 +1,12 @@
 import React from 'react';
-import {createIcon, Image} from "@chakra-ui/react";
+import {Box, Flex, Heading, Image, SimpleGrid, Spacer} from "@chakra-ui/react";
 import {ReactComponent as Art} from '../assets/svg1.svg'
+import CallToAction from "../components/CallToAction";
 function Home(props) {
     return (
-        <div><Image src='assets/svg1.svg'/> </div>
+        <div>
+            <CallToAction/>
+        </div>
     );
 }
 
