@@ -107,7 +107,7 @@ const DesktopNav = () => {
     const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
     return (
-        <Stack direction={'row'} spacing={4}>
+        <Stack direction={'row'} spacing={4} >
             {NAV_ITEMS.map((navItem) => (
                 <Box key={navItem.label}>
                     <Popover trigger={'hover'} placement={'bottom-start'}>
@@ -133,8 +133,10 @@ const DesktopNav = () => {
                                 bg={popoverContentBgColor}
                                 p={4}
                                 rounded={'xl'}
-                                minW={'sm'}>
-                                <Stack>
+                                minW={'sm'}
+                                >
+
+                                <Stack >
                                     {navItem.children.map((child) => (
                                         <DesktopSubNav key={child.label} {...child} />
                                     ))}
@@ -248,41 +250,32 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
     {
-        label: 'Inspiration',
+        label: 'Home',
+        href: '#',
+    },
+    {
+        label: 'Explore',
+        href: '#',
+    },
+    {
+        label: 'About',
         children: [
             {
-                label: 'Explore Design Work',
-                subLabel: 'Trending Design to inspire you',
+                label: 'News',
                 href: '#',
             },
             {
-                label: 'New & Noteworthy',
-                subLabel: 'Up-and-coming Designers',
+                label: 'Features',
+
+                href: '#',
+            },
+            {
+                label: 'Contact',
+
                 href: '#',
             },
         ],
     },
     {
-        label: 'Find Work',
-        children: [
-            {
-                label: 'Job Board',
-                subLabel: 'Find your dream design job',
-                href: '#',
-            },
-            {
-                label: 'Freelance Projects',
-                subLabel: 'An exclusive list for contract work',
-                href: '#',
-            },
-        ],
-    },
-    {
-        label: 'Learn Design',
-        href: '#',
-    },
-    {
-        label: 'Hire Designers',
-        href: '#',
-    },
+    }
 ];
