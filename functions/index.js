@@ -37,16 +37,16 @@ app.post('/user/image', FBAuth, uploadImage);
 app.post('/user', FBAuth, addUserDetails);
 app.get('/user', FBAuth, getAuthenticatedUser);
 app.get('/user/:handle', getUserDetails);
-app.post('/notifications',FBAuth, markNotificationsRead)
+app.post('/notifications', FBAuth, markNotificationsRead)
 
 exports.api = functions.https.onRequest(app);
 
 //TODO: condense createNotificationOnLike and createNotificationOnComment into one function
 exports.createNotificationOnLike = functions.firestore.document(`likes/{id}`)
     .onCreate((snapshot) => {
-       return db.doc(`/posts/${snapshot.data().postId}`).get()
+        return db.doc(`/posts/${snapshot.data().postId}`).get()
             .then(doc => {
-                if(doc.exists && doc.data().userHandle !== snapshot.data().userHandle) {
+                if (doc.exists && doc.data().userHandle !== snapshot.data().userHandle) {
                     return db.doc(`/notifications/${snapshot.id}`).set({
                         createdAt: new Date().toISOString(),
                         recipient: doc.data().userHandle,
@@ -76,7 +76,7 @@ exports.createNotificationOnComment = functions.firestore.document('comments/{id
     .onCreate((snapshot) => {
         return db.doc(`/posts/${snapshot.data().postId}`).get()
             .then(doc => {
-                if(doc.exists && doc.data().userHandle !== snapshot.data().userHandle) {
+                if (doc.exists && doc.data().userHandle !== snapshot.data().userHandle) {
                     return db.doc(`/notifications/${snapshot.id}`).set({
                         createdAt: new Date().toISOString(),
                         recipient: doc.data().userHandle,
@@ -88,7 +88,23 @@ exports.createNotificationOnComment = functions.firestore.document('comments/{id
                 }
             })
             .catch(err => {
-               return console.error(err);
+                return console.error(err);
             })
     });
 
+exports.onUserImageChange = functions.firestore.document('/users/{userId}')
+    .onUpdate(change => {
+        console.log(change.before.data());
+        console.log(change.after.data());
+        if (change.before.data().imageUrl !== change.after.data().imageUrl) {
+            let batch = db.batch();
+            return db.collection('posts').where('userHandle', '==', change.before.data().handle)
+                .get().then(data => {
+                    data.forEach(doc => {
+                        const post = db.doc(`/posts/${post.id}`);
+                        batch.update(post, {userImage: change.after.data().imageUrl});
+                    })
+                    return batch.commit();
+                })
+        }
+    })
