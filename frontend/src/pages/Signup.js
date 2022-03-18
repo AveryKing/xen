@@ -2,7 +2,7 @@ import React from 'react';
 
 function Signup(props) {
     return (
-        <div></div>
+        <h1>signup</h1>
     );
 }
 
