@@ -5,11 +5,18 @@ import {
   theme,
 } from '@chakra-ui/react';
 
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <h1>ZenSocial</h1>
+      <Router>
+        <Switch>
+          <Route exact path='/' component={Home}/>
+        </Switch>
+      </Router>
     </ChakraProvider>
   );
 }
