@@ -1,5 +1,5 @@
 import React from 'react';
-impo45 { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import {
   ChakraProvider,
   theme,
