@@ -70,15 +70,18 @@ export default function Navbar() {
                     justify={'flex-end'}
                     direction={'row'}
                     spacing={6}>
+
                     <Button
-                        as={'a'}
+                        as={RouterLink}
                         fontSize={'sm'}
                         fontWeight={400}
                         variant={'link'}
-                        href={'#'}>
+                        to={'/login'}>
                         Sign In
                     </Button>
                     <Button
+                        as={RouterLink}
+                        to={'/register'}
                         display={{ base: 'none', md: 'inline-flex' }}
                         fontSize={'sm'}
                         fontWeight={600}
