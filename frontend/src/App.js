@@ -7,7 +7,7 @@ import {
 
 import Home from './pages/Home';
 import Login from './pages/Login';
-import Signup from './pages/Signup';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route exact path='/login' component={Login}/>
-          <Route exact path='/' component={Home}/>
+          <Route exact path='/register' component={Register}/>
         </Switch>
       </Router>
     </ChakraProvider>
