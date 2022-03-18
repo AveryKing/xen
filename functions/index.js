@@ -101,7 +101,7 @@ exports.onUserImageChange = functions.firestore.document('/users/{userId}')
             return db.collection('posts').where('userHandle', '==', change.before.data().handle)
                 .get().then(data => {
                     data.forEach(doc => {
-                        const post = db.doc(`/posts/${post.id}`);
+                        const post = db.doc(`/posts/${doc.id}`);
                         batch.update(post, {userImage: change.after.data().imageUrl});
                     })
                     return batch.commit();
