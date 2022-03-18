@@ -7,7 +7,7 @@ import {
     Stack,
     Collapse,
     Icon,
-    Link,
+    Link as Link,
     Popover,
     PopoverTrigger,
     PopoverContent,
@@ -22,7 +22,7 @@ import {
     ChevronRightIcon,
 } from '@chakra-ui/icons';
 import {ColorModeSwitcher} from "../ColorModeSwitcher";
-
+import {Link as RouterLink} from 'react-router-dom';
 export default function Navbar() {
     const { isOpen, onToggle } = useDisclosure();
 
@@ -114,7 +114,6 @@ const DesktopNav = () => {
                         <PopoverTrigger>
                             <Link
                                 p={2}
-                                href={navItem.href ?? '#'}
                                 fontSize={'sm'}
                                 fontWeight={500}
                                 color={linkColor}
@@ -122,7 +121,9 @@ const DesktopNav = () => {
                                     textDecoration: 'none',
                                     color: linkHoverColor,
                                 }}>
+                                <RouterLink to={navItem.href ?? '#'}>
                                 {navItem.label}
+                                </RouterLink>
                             </Link>
                         </PopoverTrigger>
 
@@ -251,28 +252,28 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
     {
         label: 'Home',
-        href: '#',
+        href: '/',
     },
     {
         label: 'Explore',
-        href: '#',
+        href: '/explore',
     },
     {
         label: 'About',
         children: [
             {
                 label: 'News',
-                href: '#',
+                href: '/news',
             },
             {
                 label: 'Features',
 
-                href: '#',
+                href: '/features',
             },
             {
                 label: 'Contact',
 
-                href: '#',
+                href: '/contact',
             },
         ],
     },
