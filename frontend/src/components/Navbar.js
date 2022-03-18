@@ -69,7 +69,7 @@ export default function Navbar() {
                     </Flex>
                 </Flex>
                 <Spacer/>
-                <Center mr='8%' w='100%' ><Text fontWeight={800} fontSize={40}>Xen</Text></Center>
+                <Center mr='8%' w='100%' ><Text fontFamily='Merienda' fontWeight={800} fontSize={45}>Xen</Text></Center>
 
 
                 <Stack
