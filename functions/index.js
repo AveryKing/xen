@@ -44,7 +44,7 @@ exports.api = functions.https.onRequest(app);
 //TODO: condense createNotificationOnLike and createNotificationOnComment into one function
 exports.createNotificationOnLike = functions.firestore.document(`likes/{id}`)
     .onCreate((snapshot) => {
-        db.doc(`/posts/${snapshot.data().postId}`).get()
+       return db.doc(`/posts/${snapshot.data().postId}`).get()
             .then(doc => {
                 if(doc.exists) {
                     return db.doc(`/notifications/${snapshot.id}`).set({
@@ -56,9 +56,6 @@ exports.createNotificationOnLike = functions.firestore.document(`likes/{id}`)
                         postId: doc.id
                     })
                 }
-            })
-            .then(() => {
-                return null;
             })
             .catch(err => {
                 console.error(err);
