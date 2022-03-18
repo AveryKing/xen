@@ -12,7 +12,7 @@ import Navbar from './components/Navbar'
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Navbar />
+      <Navbar/>
       <Router>
         <Switch>
           <Route exact path='/' component={Home}/>
