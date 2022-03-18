@@ -7,17 +7,23 @@ import {
     chakra,
     Grid,
     GridItem,
-    Container, Image, Text,
+    Container, Image, Text, Icon,
 } from '@chakra-ui/react';
+import {GiBrain, GiWorld, GiOvermind} from 'react-icons/gi';
+import {IoIosChatbubbles} from 'react-icons/io';
 import {} from '@chakra-ui/react';
 import React from "react";
 
-const Feature = ({ heading, text }) => {
+const Feature = ({ heading, text,icon }) => {
     return (
-        <GridItem>
+        <GridItem mt={-6} >
+            <Flex justifyContent='center' alignItems='center'>
+                <Icon fontSize={30} as={icon} />&nbsp;
             <chakra.h3 fontSize="xl" fontWeight="600">
+
                 {heading}
             </chakra.h3>
+            </Flex>
             <chakra.p>{text}</chakra.p>
         </GridItem>
     );
@@ -61,18 +67,22 @@ export default function CallToAction() {
                 gap={{ base: '8', sm: '12', md: '16' }}>
                 <Feature
                     heading={'Transcend Your Network'}
+                    icon={GiWorld}
                     text={'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa,'}
                 />
                 <Feature
                     heading={'Stay in Touch'}
+                    icon={IoIosChatbubbles}
                     text={'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa,'}
                 />
                 <Feature
                     heading={'Deepen Your Interests'}
+                    icon={GiOvermind}
                     text={'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa,'}
                 />
                 <Feature
                     heading={'Blossom Your Mind'}
+                    icon={GiBrain}
                     text={'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa,'}
                 />
             </Grid>

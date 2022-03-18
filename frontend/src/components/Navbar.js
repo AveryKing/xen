@@ -14,7 +14,7 @@ import {
     PopoverContent,
     useColorModeValue,
     useBreakpointValue,
-    useDisclosure,
+    useDisclosure, Center, Spacer,
 } from '@chakra-ui/react';
 import {
     HamburgerIcon,
@@ -68,6 +68,9 @@ export default function Navbar() {
                         <DesktopNav />
                     </Flex>
                 </Flex>
+                <Spacer/>
+                <Center mr='8%' w='100%' ><Text fontWeight={800} fontSize={40}>Xen</Text></Center>
+
 
                 <Stack
                     flex={{ base: 1, md: 0 }}
@@ -152,6 +155,7 @@ const DesktopNav = () => {
                             </PopoverContent>
                         )}
                     </Popover>
+
                 </Box>
             ))}
         </Stack>
