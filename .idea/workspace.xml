@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e17dd993-97d6-48cd-9e5f-a254c006c647" name="Changes" comment="">
+    <list default="true" id="e17dd993-97d6-48cd-9e5f-a254c006c647" name="Changes" comment="``dbschema.js`` updated to include notification document structure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/handlers/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/handlers/users.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/index.js" afterDir="false" />
@@ -71,7 +71,9 @@
       <workItem from="1646864985072" duration="5004000" />
       <workItem from="1646881158857" duration="12465000" />
       <workItem from="1646936719430" duration="18166000" />
-      <workItem from="1647490371502" duration="4506000" />
+      <workItem from="1647490371502" duration="5888000" />
+      <workItem from="1647558380264" duration="973000" />
+      <workItem from="1647566720079" duration="245000" />
     </task>
     <task id="LOCAL-00001" summary="``dbschema.js`` updated to include notification document structure">
       <created>1646955759894</created>
