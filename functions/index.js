@@ -64,20 +64,17 @@ exports.createNotificationOnLike = functions.firestore.document(`likes/{id}`)
 
 exports.deleteNotificationOnUnlike = functions.firestore.document('likes/{id}')
     .onDelete((snapshot) => {
-        db.doc(`/notifications/${snapshot.id}`)
+        return db.doc(`/notifications/${snapshot.id}`)
             .delete()
-            .then(() => {
-                return null;
-            })
             .catch(err => {
-                console.error(err)
+                return console.error(err)
             })
     })
 
 
 exports.createNotificationOnComment = functions.firestore.document('comments/{id}')
     .onCreate((snapshot) => {
-        db.doc(`/posts/${snapshot.data().postId}`).get()
+        return db.doc(`/posts/${snapshot.data().postId}`).get()
             .then(doc => {
                 if(doc.exists) {
                     return db.doc(`/notifications/${snapshot.id}`).set({
@@ -90,11 +87,8 @@ exports.createNotificationOnComment = functions.firestore.document('comments/{id
                     })
                 }
             })
-            .then(() => {
-                return null;
-            })
             .catch(err => {
-                console.error(err);
+               return console.error(err);
             })
     });
 
