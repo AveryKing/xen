@@ -8,10 +8,11 @@ import {
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
-
+import WithSubnavigation from './components/Navbar'
 function App() {
   return (
     <ChakraProvider theme={theme}>
+      <WithSubnavigation />
       <Router>
         <Switch>
           <Route exact path='/' component={Home}/>
