@@ -1,8 +1,13 @@
 import React from 'react';
+import SidebarWithHeader from "../components/Sidebar";
 
 function Flow(props) {
     return (
-        <div></div>
+        <div>
+            <SidebarWithHeader />
+            hey
+        </div>
+
     );
 }
 

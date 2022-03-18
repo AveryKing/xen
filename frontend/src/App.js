@@ -15,7 +15,7 @@ function App({loggedIn = false}) {
     return (
         <ChakraProvider theme={theme}>
             <Router>
-                <Navbar/>
+                { !loggedIn && <Navbar/> }
 
                 <Switch>
                     <Route exact path='/' component={loggedIn ? Flow : Home}/>

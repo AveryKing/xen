@@ -53,7 +53,8 @@ export default function Navbar() {
                         aria-label={'Toggle Navigation'}
                     />
                 </Flex>
-                <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+                <Flex alignItems='center' flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+                    <Flex  >
                     <Icon
                         sx={{color:'#ED64A6'}}
                         as={GiYinYang}
@@ -63,15 +64,13 @@ export default function Navbar() {
                         color={useColorModeValue('gray.800', 'white')}>
 
                     </Icon>
-
+                        &nbsp;
+                        <Text fontFamily='Merienda' fontSize={25}>Xen</Text>
+                    </Flex>
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10} mt={1}>
                         <DesktopNav />
                     </Flex>
                 </Flex>
-                <Spacer/>
-                <Center mr='8%' w='100%' ><Text fontFamily='Merienda' fontWeight={800} fontSize={45}>Xen</Text></Center>
-
-
                 <Stack
                     flex={{ base: 1, md: 0 }}
                     justify={'flex-end'}
@@ -80,7 +79,7 @@ export default function Navbar() {
 
                     <Button
                         as={RouterLink}
-                        fontSize={18}
+                        fontSize={'md'}
                         fontWeight={400}
                         variant={'link'}
                         to={'/login'}>
@@ -90,7 +89,7 @@ export default function Navbar() {
                         as={RouterLink}
                         to={'/register'}
                         display={{ base: 'none', md: 'inline-flex' }}
-                        fontSize={'lg'}
+                        fontSize={'md'}
                         fontWeight={600}
                         color={'white'}
                         bg={'pink.400'}
@@ -124,7 +123,7 @@ const DesktopNav = () => {
                         <PopoverTrigger>
                             <Link
                                 p={2}
-                                fontSize={18}
+                                fontSize={'md'}
                                 fontWeight={500}
                                 color={linkColor}
                                 _hover={{

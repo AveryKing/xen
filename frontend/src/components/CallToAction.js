@@ -31,7 +31,7 @@ const Feature = ({ heading, text,icon }) => {
 
 export default function CallToAction() {
     return (
-        <Box as={Container} maxW="7xl" mt={14} >
+        <Box as={Container} maxW="7xl" mt={13.5} p={4}>
             <Grid
                 templateColumns={{
                     base: 'repeat(1, 1fr)',
@@ -41,10 +41,10 @@ export default function CallToAction() {
                 gap={4}>
                 <GridItem colSpan={1}>
                     <VStack mt={2} alignItems="center" spacing="20px">
-                        <Text textAlign='center' fontSize="3vw" fontWeight="700">
+                        <Text textAlign='center' fontSize="2.5vw" fontWeight="700">
                            Find Your Flow
                         </Text><Text textAlign='center'>
-                        Tired of mindlessly scrolling on platforms such as Facebook and Twitter? <br/>Here at Xen, you can explore content that will actively stimulate and engage your mind.<br/> Create a free account now to make meaningful connections and mindfully <i>flow</i>.
+                        Tired of mindlessly scrolling on platforms such as Facebook and Twitter? Here at Xen, you can explore content that will actively stimulate and engage your mind.<br/> Create a free account now to and make meaningful connections and mindfully <i>flow</i>.
                     </Text>
                         <Button colorScheme="gray" size="md">
                             Join Now
