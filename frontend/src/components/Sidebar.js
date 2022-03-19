@@ -79,7 +79,7 @@ export default function SidebarWithHeader({children}) {
 const SidebarContent = ({onClose, ...rest}) => {
     return (
         <Box
-            transition="3s ease"
+        
             bg={useColorModeValue('white', 'gray.900')}
             borderRight="1px"
             borderRightColor={useColorModeValue('gray.200', 'gray.700')}

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
-import {Box, Button, Container, Flex, Grid, GridItem, SimpleGrid} from "@chakra-ui/react";
+import {Box, Button, Grid, Flex, Container, SimpleGrid, GridItem, ListItem, List} from "@chakra-ui/react";
 import Post from "../components/Post";
 
 function Flow(props) {
@@ -11,6 +11,7 @@ function Flow(props) {
     useEffect(() => {
         axios.get('https://us-central1-zensocial-501c5.cloudfunctions.net/api/posts')
             .then(res => {
+                console.log(res.data)
                 setPosts(res.data);
             })
             .catch(err => {
@@ -19,10 +20,17 @@ function Flow(props) {
     },[])
 
     return (
-        <SimpleGrid ml={{md: '7rem', lg: '15rem'}} spacingX={3} columns={9}>
-            {posts.map(x =>  <GridItem colStart={1} colEnd={7}><Post/></GridItem>)}
-            <GridItem colStart={7} colEnd={9}><Post/></GridItem>
-        </SimpleGrid>
+        <Container ml={'13rem'}>
+            <List zIndex={-1} py={20} w="full" spacing={{ base: 8, md: 7 }}>
+                {posts.map((post,index) =><ListItem mt={0}><Post key={index} post={post}/></ListItem>)}
+            </List>
+
+
+
+        </Container>
+
+
+
 
     );
 }

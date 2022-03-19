@@ -28,7 +28,7 @@ export default function Navbar() {
     const { isOpen, onToggle } = useDisclosure();
 
     return (
-        <Box ml={4} mr={4}>
+        <Box zIndex={1000} ml={4} mr={4}>
             <Flex
 
                 bg={useColorModeValue('white', 'gray.800')}
@@ -198,6 +198,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
 const MobileNav = () => {
     return (
         <Stack
+
             bg={useColorModeValue('white', 'gray.800')}
             p={4}
             display={{ md: 'none' }}>

@@ -9,7 +9,7 @@ const {
     createPost,
     commentOnPost,
     likePost,
-    unlikePost,
+    unlikePost,2
     deletePost
 } = require('./handlers/posts');
 const {
