@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e17dd993-97d6-48cd-9e5f-a254c006c647" name="Changes" comment="``dbschema.js`` updated to include notification document structure">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/CallToAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CallToAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Sidebar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Flow.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Flow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/functions/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/functions/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +87,7 @@
       <workItem from="1647490371502" duration="5888000" />
       <workItem from="1647558380264" duration="973000" />
       <workItem from="1647566720079" duration="6660000" />
-      <workItem from="1647579139034" duration="37967000" />
+      <workItem from="1647579139034" duration="38707000" />
     </task>
     <task id="LOCAL-00001" summary="``dbschema.js`` updated to include notification document structure">
       <created>1646955759894</created>
