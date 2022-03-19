@@ -30,7 +30,7 @@ export default function Login() {
                     p={8}>
                     <Stack spacing={4}>
                         <FormControl id="email">
-                            <FormLabel>Email address</FormLabel>
+                            <FormLabel>Username</FormLabel>
                             <Input type="email" />
                         </FormControl>
                         <FormControl id="password">
