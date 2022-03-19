@@ -10,12 +10,14 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Flow from './pages/Flow';
 import Navbar from './components/Navbar'
+import SidebarWithHeader from "./components/Sidebar";
 
-function App({loggedIn = false}) {
+function App({loggedIn = 1}) {
     return (
         <ChakraProvider theme={theme}>
             <Router>
-                { !loggedIn && <Navbar/> }
+
+                { !loggedIn ? <Navbar/> :  <SidebarWithHeader/> }
 
                 <Switch>
                     <Route exact path='/' component={loggedIn ? Flow : Home}/>
