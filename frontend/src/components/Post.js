@@ -1,4 +1,3 @@
-
 import {
     LinkBox,
     LinkOverlay,
@@ -7,9 +6,11 @@ import {
     VStack,
     Stack,
     useColorModeValue,
-    HStack, Avatar,
+    HStack, Avatar, IconButton, ButtonGroup, Flex,
 } from "@chakra-ui/react";
 import {Link} from 'react-router-dom'
+import {BsHeart, BsStar} from 'react-icons/bs'
+import {BiRepost, BiComment} from 'react-icons/bi'
 
 const BlogPostCard = ({post}) => {
     const hoverBg = useColorModeValue("gray.100", "gray.700");
@@ -17,12 +18,12 @@ const BlogPostCard = ({post}) => {
     return (
         <LinkBox
 
-            boxShadow={useColorModeValue('base','2xl')}
+            boxShadow={useColorModeValue('base', '2xl')}
             as="article">
             <VStack
                 alignItems="stretch"
                 w="full"
-                p={{ base: 0, md: 4 }}
+                p={{base: 0, md: 4}}
                 _hover={{
                     bg: hoverBg,
                     transform: "scale(1.025, 1.025)",
@@ -31,9 +32,29 @@ const BlogPostCard = ({post}) => {
                 transitionDuration="slow"
                 transitionProperty="all"
                 transitionTimingFunction="ease-out"
-            >
+            >   <Flex position='absolute' sx={{right:0,top:0}}>
+                    <IconButton
+                        variant={'ghost'}
+                        icon={<BsHeart/>}
+                        aria-label={'heart'}/>
+                <IconButton
+                    variant={'ghost'}
+                    icon={<BsStar/>}
+                    aria-label={'star'}/>
+                <IconButton
+                    variant={'ghost'}
+                    icon={<BiComment/>}
+                    aria-label={'comment'}/>
+                    <IconButton
+                        variant={'ghost'}
+
+                        fontSize={20}
+                        icon={<BiRepost/>}
+                        aria-label={'repost'}/>
+            </Flex>
                 <VStack alignItems="flex-start">
-                    <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
+
+                    <Stack mt={0} direction={'row'} spacing={4} align={'center'}>
                         <Avatar
                             src={post.userImage}
                             alt={'Author'}
@@ -61,8 +82,11 @@ const BlogPostCard = ({post}) => {
                 <Text color="gray.500" fontSize="sm">
                     {post.body}
 
-                                    </Text>
+                </Text>
             </VStack>
+
+
+
         </LinkBox>
     );
 };

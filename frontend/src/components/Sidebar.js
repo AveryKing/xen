@@ -79,7 +79,7 @@ export default function SidebarWithHeader({children}) {
 const SidebarContent = ({onClose, ...rest}) => {
     return (
         <Box
-        
+            zIndex={20000}
             bg={useColorModeValue('white', 'gray.900')}
             borderRight="1px"
             borderRightColor={useColorModeValue('gray.200', 'gray.700')}
@@ -100,7 +100,7 @@ const SidebarContent = ({onClose, ...rest}) => {
                 </Icon> &nbsp;
                 <Text
                     display={{md:'none', lg:'block'}}
-                    fontSize="3xl" fontFamily="Merienda" fontWeight="bold">
+                    fontSize="3xl" fontFamily="Arial" fontWeight="bold">
                     Xen
                 </Text>
                 <CloseButton display={{base: 'flex', md: 'none'}} onClick={onClose}/>
