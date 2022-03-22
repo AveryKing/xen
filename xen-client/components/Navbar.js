@@ -9,7 +9,7 @@ const Navbar = () => {
     }
     const MotionLogo = motion(GiYinYang);
     return (
-        <header className='font-ubuntu flex justify-between px-8 py-3 max-w-full mx-auto shadow-md'>
+        <header className='select-none font-ubuntu flex justify-between px-8 py-3 max-w-full mx-auto shadow-md'>
             <div className="flex items-center space-x-5">
                 <div
                     className={'flex items-center space-x-2 text-2xl'}>
