@@ -4,9 +4,9 @@ import {FcGoogle} from 'react-icons/fc';
 import {GrGithub} from 'react-icons/gr';
 import {GiYinYang} from "react-icons/gi";
 
-const Modal = ({isOpen, setIsOpen}) => {
+const Modal = ({isOpen, toggle}) => {
     const closeModal = () => {
-        setIsOpen(false);
+        toggle();
     }
     return (
 

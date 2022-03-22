@@ -1,17 +1,15 @@
-import {useAuth} from '@/lib/auth';
-import Navbar from "@/components/Navbar";
 import CallToAction from "@/components/CallToAction";
-import Modal from "@/components/Modal";
-import {useState} from "react";
-
+import LoginModal from "@/components/Modal";
+import useToggle from "@/lib/use-toggle";
+import Navbar from "@/components/Navbar";
 export default function Index() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [loginOpen, toggleLogin] = useToggle();
 
     return (
         <>
-
-            <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
-            <CallToAction openSignUp={setIsOpen}  />
+            <Navbar openLogin={toggleLogin} />
+            <LoginModal isOpen={loginOpen} toggle={toggleLogin} />
+            <CallToAction openLogin={toggleLogin}  />
         </>
     )
 }
