@@ -24,14 +24,14 @@ const Navbar = () => {
                     <motion.p
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
-                        transition={{duration: 1.5}}
+                        transition={{duration: 1}}
                         className='font-logo font-semibold lg:text-3xl'>Xen
                     </motion.p>
                 </div>
                 <motion.div
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
-                    transition={{duration: 1.5}}
+                    transition={{duration: 1}}
                     className=" hidden md:inline-flex items-center space-x-5">
                     <h3>Home</h3>
                     <h3>Explore</h3>
@@ -41,7 +41,7 @@ const Navbar = () => {
             <motion.div
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
-                transition={{duration: 1.5}} className='flex items-center space-x-5 text-pink-500'>
+                transition={{duration: 1}} className='flex items-center space-x-5 text-pink-500'>
                 <h3>Sign In</h3>
                 <button
                     className='hover:scale-105 hover:bg-pink-400 border px-4 py-1 rounded-full bg-pink-500 text-white border-pink-500'>Get
