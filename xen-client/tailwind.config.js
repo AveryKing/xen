@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         ubuntu: ['Ubuntu'],
+        logo: ['Merienda'],
       },
     },
   },
