@@ -13,8 +13,8 @@ const CallToAction = () => {
             </div>
             <div className='hidden md:w-5/12 md:inline-flex p-10 lg:mr-5 object-contain'>
                 <img
-                     src="cta.png"
-                     alt="Medusa"/>
+                    src="assets/homepage-image.png"
+                    alt="homepage-image"/>
             </div>
 
         </div>
