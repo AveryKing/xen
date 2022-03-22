@@ -5,7 +5,7 @@ const Navbar = () => {
             <div className="flex items-center space-x-5">
                 <div className={'flex items-center space-x-2 text-2xl'}>
                 <a href={'/'}>
-                   <GiYinYang className={'text-4xl text-pink-600'}/>
+                   <GiYinYang className={'text-4xl text-pink-500'}/>
                 </a>
                 <p className='font-semibold'>Xen</p>
                 </div>
@@ -15,7 +15,7 @@ const Navbar = () => {
                     <h3 className="text-black">About</h3>
                 </div>
             </div>
-            <div className='flex items-center space-x-5 text-pink-600'>
+            <div className='flex items-center space-x-5 text-pink-500'>
                 <h3>Sign In</h3>
                 <h3 className='border px-4 py-1 rounded-full bg-pink-500 text-white border-pink-500'>Get Started</h3>
             </div>
