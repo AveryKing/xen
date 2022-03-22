@@ -7,7 +7,7 @@ const Navbar = () => {
                 <a href={'/'}>
                    <GiYinYang className={'text-4xl text-pink-600'}/>
                 </a>
-                <p>Xen</p>
+                <p style={{fontFamily:'Ubuntu'}}>Xen</p>
                 </div>
                 <div className=" hidden md:inline-flex items-center space-x-5">
                     <h3>Home</h3>
