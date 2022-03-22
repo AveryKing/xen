@@ -1,15 +1,7 @@
-import {GiYinYang, GiHamburgerMenu} from 'react-icons/gi'
+import {GiYinYang} from 'react-icons/gi'
 import {motion} from "framer-motion";
-import Modal from "@/components/Modal";
-import {useState} from 'react';
-const Navbar = () => {
-    const fadeIn = {
-        initial: {opacity: 0},
-        animate: {opacity: 1},
-        transition: {duration: 1, type: 'tween', ease: 'anticipate'}
-    }
+const Navbar = ({openLogin}) => {
 
-    const MotionLogo = motion(GiYinYang);
     return (
         <>
 
@@ -48,6 +40,7 @@ const Navbar = () => {
                 transition={{duration: 1}} className='flex items-center space-x-5 text-pink-500'>
                 <h3>Sign In</h3>
                 <button
+                    onClick={() => openLogin()}
                     className='hover:scale-105 hover:bg-pink-400 border px-4 py-1 rounded-full bg-pink-500 text-white border-pink-500'>Get
                     Started
                 </button>
