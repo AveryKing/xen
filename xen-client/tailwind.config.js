@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Ubuntu', ...defaultTheme.fontFamily.sans],
+        ubuntu: ['Ubuntu'],
       },
     },
   },
