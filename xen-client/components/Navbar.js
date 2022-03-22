@@ -1,14 +1,18 @@
 import {GiYinYang, GiHamburgerMenu} from 'react-icons/gi'
 import {motion} from "framer-motion";
-
+import Modal from "@/components/Modal";
+import {useState} from 'react';
 const Navbar = () => {
     const fadeIn = {
         initial: {opacity: 0},
         animate: {opacity: 1},
         transition: {duration: 1, type: 'tween', ease: 'anticipate'}
     }
+
     const MotionLogo = motion(GiYinYang);
     return (
+        <>
+
         <header className='select-none font-ubuntu flex justify-between px-8 py-3 max-w-full mx-auto shadow-md'>
             <div className="flex items-center space-x-5">
                 <div
@@ -49,6 +53,7 @@ const Navbar = () => {
                 </button>
             </motion.div>
         </header>
+            </>
     )
 }
 export default Navbar;

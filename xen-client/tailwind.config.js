@@ -9,6 +9,9 @@ module.exports = {
                 ubuntu: ['Ubuntu'],
                 logo: ['Merienda'],
             },
+            animation: {
+                'spin-slow': 'spin 8s linear infinite'
+            }
         },
     },
     plugins: [],
