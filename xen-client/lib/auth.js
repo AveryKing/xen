@@ -17,6 +17,7 @@ export const useAuth = () => {
 const useProvideAuth = () => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [loggedIn, setLoggedIn] = useState(null);
 
     const handleUser = (rawUser) => {
         if (rawUser) {
@@ -24,10 +25,12 @@ const useProvideAuth = () => {
             setLoading(false);
             createUser(user.uid, user);
             setUser(user);
+            setLoggedIn(true)
             return user
         } else {
             setLoading(false);
             setUser(false);
+            setLoggedIn(false);
             return false;
         }
     }
@@ -65,7 +68,7 @@ const useProvideAuth = () => {
         return () => unsubscribe();
     }, [])
 
-    return {user, loading, signInWithGithub, signInWithGoogle, signOut}
+    return {user, loading, loggedIn, signInWithGithub, signInWithGoogle, signOut}
 }
 
 const formatUser = (user) => {

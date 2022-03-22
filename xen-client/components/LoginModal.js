@@ -1,15 +1,15 @@
 import {Dialog, Transition} from '@headlessui/react'
-import {Fragment} from 'react'
+import {Fragment, useEffect} from 'react'
 import {FcGoogle} from 'react-icons/fc';
-import {GrGithub} from 'react-icons/gr';
+import {GrGithub, GrLogout} from 'react-icons/gr';
 import {GiYinYang} from "react-icons/gi";
-import {useAuth} from "@/lib/auth";
 
-const Modal = ({isOpen, toggle}) => {
-    const auth = useAuth();
+const LoginModal = ({isOpen, toggle, auth}) => {
     const closeModal = () => {
         toggle();
     }
+
+    const title = auth.loggedIn ? `You are logged in as ${auth.user.name}` : 'Please sign in';
     return (
 
         <Transition appear show={isOpen} as={Fragment}>
@@ -61,20 +61,29 @@ const Modal = ({isOpen, toggle}) => {
                                     <p className='font-logo text-4xl font-semibold '>Xen</p>
                                 </div>
 
-                                Please sign in below
-                            </Dialog.Title>
-                            <div className="mt-5 justify-center flex flex-col space-y-3">
-                                <div onClick={() => auth.signInWithGoogle()}
+                                <p>{title}</p>
 
-                                     className='hover:shadow-sm hover:bg-gray-100 hover:scale-105 hover:cursor-pointer flex font-semibold  mx-auto w-2/3 select-none border-2 p-1 rounded-full items-center space-x-3 text-1/2 justify-center'>
-                                    <FcGoogle size={25}/>
-                                    <p className='text-pink-600'>Sign In With Google</p>
-                                </div>
-                                <div onClick={() => auth.signInWithGithub()}
-                                     className='hover:shadow-sm hover:bg-gray-100 hover:scale-105  hover:cursor-pointer flex font-semibold  mx-auto w-2/3 select-none border-2 p-1 rounded-full items-center space-x-3 text-1/2 justify-center'>
-                                    <GrGithub size={25}/>
-                                    <p className='text-pink-600'>Sign In With GitHub</p>
-                                </div>
+                            </Dialog.Title>
+
+                            <div className="mt-5 justify-center flex flex-col space-y-3">
+                                {auth.loggedIn
+                                    ? <div onClick={() => auth.signOut()} className='hover:shadow-sm hover:bg-gray-100 hover:scale-105 hover:cursor-pointer flex font-semibold  mx-auto w-2/3 select-none border-2 p-1 rounded-full items-center space-x-3 text-1/2 justify-center'>
+                                        <GrLogout size={20}/>
+                                        <p className='text-pink-600'>Log out</p>
+                                    </div>
+                                    : <>
+                                        <div onClick={() => auth.signInWithGoogle()}
+                                             className='hover:shadow-sm hover:bg-gray-100 hover:scale-105 hover:cursor-pointer flex font-semibold  mx-auto w-2/3 select-none border-2 p-1 rounded-full items-center space-x-3 text-1/2 justify-center'>
+                                            <FcGoogle size={25}/>
+                                            <p className='text-pink-600'>Sign In With Google</p>
+                                        </div>
+                                        <div onClick={() => auth.signInWithGithub()}
+                                             className='hover:shadow-sm hover:bg-gray-100 hover:scale-105  hover:cursor-pointer flex font-semibold  mx-auto w-2/3 select-none border-2 p-1 rounded-full items-center space-x-3 text-1/2 justify-center'>
+                                            <GrGithub size={25}/>
+                                            <p className='text-pink-600'>Sign In With GitHub</p>
+                                        </div>
+                                    </>}
+
 
                             </div>
 
@@ -86,4 +95,4 @@ const Modal = ({isOpen, toggle}) => {
     );
 };
 
-export default Modal;
+export default LoginModal;

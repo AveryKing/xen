@@ -16,7 +16,7 @@ const CallToAction = ({openLogin}) => {
 
             </div>
             <div className='hidden md:w-5/12 md:inline-flex p-10 lg:mr-5 object-contain'>
-                <img
+                <img className='select-none'
                     src="assets/homepage-image.png"
                     alt="Xen"/>
             </div>
