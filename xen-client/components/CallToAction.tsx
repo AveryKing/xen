@@ -9,7 +9,7 @@ const CallToAction = () => {
                     Here at Xen, you can explore content that will actively stimulate and engage your mind.
                     Create a free account now to make meaningful connections and mindfully flow.</h2>
             </div>
-            <img className='hidden md:inline-flex flex-grow p-10 md:w-96 lg:w-full lg:mr-5 object-contain'
+            <img className='hidden md:inline-flex flex-grow p-10 md:w-96 lg:w-11/12 lg:mr-5 object-contain'
                  src="cta.png"
                  alt="Medusa"/>
         </div>
