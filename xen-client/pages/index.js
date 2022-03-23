@@ -19,9 +19,23 @@ export default function Index() {
     )
 } else {
         return (
-            <UIShell>
-                <div className='select-none mt-16 text-2xl'>Your Flow</div>
+            <UIShell >
+                <div className='overflow-y-auto h-[calc(100vh)] w-[calc(100vw-1rem)] md:w-[calc(100vw-16rem)]'>
+
+                    <div>
+                    <div className='select-none mt-16 text-2xl mb-3'>Your Flow</div>
+                        <div>
                     <BlogPostCard/>
+                    <BlogPostCard/>
+                    <BlogPostCard/>
+                    <BlogPostCard/>
+                    <BlogPostCard/>
+                    <BlogPostCard/>
+                    <BlogPostCard/>
+                    <BlogPostCard/>
+                        </div>
+                    </div>
+                </div>
             </UIShell>
         )
     }
