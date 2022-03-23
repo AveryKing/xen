@@ -3,12 +3,13 @@ import {Fragment, useEffect} from 'react'
 import {FcGoogle} from 'react-icons/fc';
 import {GrGithub, GrLogout} from 'react-icons/gr';
 import {GiYinYang} from "react-icons/gi";
+import {useAuth} from "@/lib/auth";
 
-const LoginModal = ({isOpen, toggle, auth}) => {
+const LoginModal = ({isOpen, toggle}) => {
+    const auth = useAuth();
     const closeModal = () => {
         toggle();
     }
-
     const title = auth.loggedIn ? `You are logged in as ${auth.user.name}` : 'Please sign in';
     return (
 

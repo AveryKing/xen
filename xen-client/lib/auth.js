@@ -17,7 +17,7 @@ export const useAuth = () => {
 const useProvideAuth = () => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [loggedIn, setLoggedIn] = useState(null);
+    const [loggedIn, setLoggedIn] = useState(false);
 
     const handleUser = (rawUser) => {
         if (rawUser) {
@@ -57,6 +57,7 @@ const useProvideAuth = () => {
 
 
     const signOut = () => {
+        setLoggedIn(false)
         return firebase
             .auth()
             .signOut()

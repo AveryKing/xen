@@ -8,9 +8,8 @@ export default function Index() {
     const auth = useAuth();
     return (
         <>
-            {auth.loggedIn && <p>Welcome, {auth.user.name}</p>}
             <Navbar openLogin={toggleLogin} />
-            <LoginModal auth={auth} isOpen={loginOpen} toggle={toggleLogin} />
+            <LoginModal isOpen={loginOpen} toggle={toggleLogin} />
             <CallToAction openLogin={toggleLogin}  />
         </>
     )
