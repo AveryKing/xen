@@ -42,7 +42,7 @@ const Navbar = ({openLogin}) => {
 
     return (
         <>
-            <header className='select-none font-ubuntu flex justify-between px-8 py-3 max-w-full mx-auto shadow-md'>
+            <header className='select-none font-ubuntu flex justify-between px-8 py-3 max-w-full mx-auto border-2'>
                 <div className="flex items-center space-x-5">
                     <div
                         className={'flex items-center space-x-2 text-2xl'}>
@@ -61,15 +61,19 @@ const Navbar = ({openLogin}) => {
                             className='font-logo font-semibold lg:text-3xl'>Xen
                         </motion.p>
                     </div>
-                    <motion.div
-                        initial={{opacity: 0}}
-                        animate={{opacity: 1}}
-                        transition={{duration: 1}}
-                        className=" hidden md:inline-flex items-center space-x-5">
-                        <h3>Home</h3>
-                        <h3>Explore</h3>
-                        <h3>About</h3>
-                    </motion.div>
+                    {!auth.loggedIn &&
+                    <>
+                        <motion.div
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            transition={{duration: 1}}
+                            className=" hidden md:inline-flex items-center space-x-5">
+                            <h3>Home</h3>
+                            <h3>Explore</h3>
+                            <h3>About</h3>
+                        </motion.div>
+                    </>
+                    }
                 </div>
                 {topRightGroup}
             </header>
