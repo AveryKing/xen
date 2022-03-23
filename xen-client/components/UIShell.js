@@ -51,12 +51,15 @@ const LinkItems = [
 export default function UIShell({children}) {
     const {isOpen, onOpen, onClose} = useDisclosure();
     return (
-        <Box minH="100vh" position='fixed'>
+        <Box minH="100vh" position='fixed'
+        >
             <SidebarContent
                 onClose={() => onClose}
+                className='select-none'
                 display={{base: 'none', md: 'block'}}
             />
             <Drawer
+
                 autoFocus={false}
                 isOpen={isOpen}
                 placement="left"
@@ -163,9 +166,9 @@ const MobileNav = ({onOpen, ...rest}) => {
             alignItems="center"
             position='fixed'
             width={{base: '100%', md: '90%', lg: '85%'}}
-            bg={useColorModeValue('white', 'white')}
+            bg={useColorModeValue('white', 'gray.900')}
             borderBottomWidth="1px"
-            borderBottomColor={useColorModeValue('gray.200', 'gray.200')}
+            borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
             justifyContent={{base: 'space-between', md: 'flex-end'}}
             {...rest}>
             <IconButton
@@ -199,38 +202,39 @@ const MobileNav = ({onOpen, ...rest}) => {
                             py={2}
                             transition="all 0.3s"
                             _focus={{boxShadow: 'none'}}>
-                            <motion.div
-                                initial={{opacity: 0}}
-                                animate={{opacity: 1}}
-                                transition={{duration: 1}}
-                                className='flex items-center space-x-1 -mr-5 md:mr-0'>
-                                <IoIosNotificationsOutline
-                                    className='mr-5 hover:scale-110 hover:bg-pink-50 rounded-full hover:cursor-pointer w-10' size={30}/>
-                                <div
-                                    className='hover:cursor-pointer px-4 py-0 h-10 rounded-full items-center space-x-1 flex hover:bg-pink-50'>
-                                    <img src={auth.user.photoUrl}
-                                         alt={auth.user.name}
-                                         className='w-8 rounded-full'/>
-                                    <p>{auth.user.name}</p>
-                                    <FiChevronDown size={24}/>
-                                </div>
-                            </motion.div>
+                            <HStack className='mr-5'>
+                                <Avatar
+                                    size={'sm'}
+
+                                />
+                                <VStack
+                                    display={{base: 'none', md: 'flex'}}
+                                    alignItems="flex-start"
+                                    spacing="1px"
+                                    ml="2">
+                                    <Text fontSize="sm">Avery King</Text>
+                                    <Text fontSize="xs" color="gray.600">
+                                        Admin
+                                    </Text>
+                                </VStack>
+                                <Box display={{base: 'none', md: 'flex'}}>
+                                    <FiChevronDown/>
+                                </Box>
+                            </HStack>
                         </MenuButton>
 
                         <MenuList
-                            bg={useColorModeValue('white', 'white')}
-                            borderColor={useColorModeValue('gray.200', 'gray.200')}>
+                            bg={useColorModeValue('white', 'gray.900')}
+                            borderColor={useColorModeValue('gray.200', 'gray.700')}>
                             <MenuItem>Profile</MenuItem>
                             <MenuItem>Settings</MenuItem>
-                            <MenuItem>Billing</MenuItem>
+                            <MenuItem>Support</MenuItem>
                             <MenuDivider/>
-                            <MenuItem>Sign out</MenuItem>
+                            <MenuItem onClick={() => auth.signOut()}>Sign out</MenuItem>
                         </MenuList>
                     </Menu>
                 </Flex>
             </HStack>
         </Flex>
-
-
     );
 };
