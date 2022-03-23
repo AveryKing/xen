@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import {useAuth} from '@/lib/auth';
 import Sidebar from "@/components/UIShell";
 import UIShell from "@/components/UIShell";
+import BlogPostCard from "@/components/Post";
 export default function Index() {
     const [loginOpen, toggleLogin] = useToggle();
     const auth = useAuth();
@@ -20,6 +21,7 @@ export default function Index() {
         return (
             <UIShell>
                 <div className='select-none mt-16 text-2xl'>Your Flow</div>
+                    <BlogPostCard/>
             </UIShell>
         )
     }
