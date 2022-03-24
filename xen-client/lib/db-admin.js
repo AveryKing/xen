@@ -30,25 +30,23 @@ export async function getAllSites() {
     return {sites}
 }
 
-export const getAllUsers = () => {
+export const getAllUsers = async () => {
     const users = [];
-    db.collection('users').get()
-        .then(res => {
-            res.forEach((doc) => {
-                users.push({id: doc.id, ...doc.data()});
-            })
-        });
-    return {users}
+    const dbRes = await db.collection('users').get()
+    dbRes.forEach((doc) => {
+        users.push({id: doc.id, ...doc.data()});
+    })
+    return {users};
 }
 
 export const getUser = async (id) => {
     let user = null;
-    db.collection('users')
-        .where('uid', '==', id).get()
-        .then(res => {
-            if (res[0].exists) {
-                user = {id: res[0].id, ...res[0].data()};
-            }
-        })
+    const dbRes = await db.collection('users')
+        .where('uid', '==', id).get();
+
+    dbRes.forEach((doc) => {
+        user = {id: doc.id, ...doc.data()};
+    })
+
     return user;
 }
