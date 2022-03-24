@@ -28,4 +28,15 @@ export async function getAllSites() {
     })
 
     return { sites }
-}''
+}
+
+export const getAllUsers = async () => {
+    const users = [];
+    db.collection('users').get()
+        .then(res => {
+            res.forEach((doc) => {
+                users.push({id:doc.id, ...doc.data()});
+            })
+        });
+    return {users}
+}

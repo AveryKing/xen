@@ -9,7 +9,6 @@ import {
     VStack,
     Icon,
     useColorModeValue,
-    Link,
     Drawer,
     DrawerContent,
     Text,
@@ -32,7 +31,7 @@ import {
     FiBell,
     FiChevronDown,
 } from 'react-icons/fi';
-
+import Link from 'next/link';
 import {IconType} from 'react-icons';
 import {ReactText} from 'react';
 import {GiYinYang} from "react-icons/gi";
@@ -226,7 +225,7 @@ const MobileNav = ({onOpen, ...rest}) => {
                         <MenuList
                             bg={useColorModeValue('white', 'gray.900')}
                             borderColor={useColorModeValue('gray.200', 'gray.700')}>
-                            <MenuItem>Profile</MenuItem>
+                            <Link href={`/user/${auth.user.uid}`}><MenuItem>Profile</MenuItem></Link>
                             <MenuItem>Settings</MenuItem>
                             <MenuItem>Support</MenuItem>
                             <MenuDivider/>
