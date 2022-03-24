@@ -9,12 +9,12 @@ export async function getAllFeedback(siteId) {
         const feedback = [];
 
         snapshot.forEach((doc) => {
-            feedback.push({ id: doc.id, ...doc.data() });
+            feedback.push({id: doc.id, ...doc.data()});
         });
 
-        return { feedback };
+        return {feedback};
     } catch (error) {
-        return { error };
+        return {error};
     }
 }
 
@@ -24,19 +24,31 @@ export async function getAllSites() {
     const sites = []
 
     snapshot.forEach((doc) => {
-        sites.push({ id: doc.id, ...doc.data() })
+        sites.push({id: doc.id, ...doc.data()})
     })
 
-    return { sites }
+    return {sites}
 }
 
-export const getAllUsers = async () => {
+export const getAllUsers = () => {
     const users = [];
     db.collection('users').get()
         .then(res => {
             res.forEach((doc) => {
-                users.push({id:doc.id, ...doc.data()});
+                users.push({id: doc.id, ...doc.data()});
             })
         });
     return {users}
+}
+
+export const getUser = async (id) => {
+    let user = null;
+    db.collection('users')
+        .where('uid', '==', id).get()
+        .then(res => {
+            if (res[0].exists) {
+                user = {id: res[0].id, ...res[0].data()};
+            }
+        })
+    return user;
 }
